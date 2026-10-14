@@ -1,0 +1,1123 @@
+/* =============================================================
+   BIBLIOTECA DIGITAL UNIFECAF — style.css
+   Organizado por seções, comentado e sem frameworks externos.
+   Somente HTML5 + CSS3.
+   ============================================================= */
+
+
+/* =============================================================
+   1. VARIÁVEIS / CUSTOM PROPERTIES (Identidade Visual UniFECAF)
+   ============================================================= */
+:root {
+  /* Paleta oficial */
+  --azul-principal:  #001F5B;
+  --azul-escuro:     #001544;
+  --verde-destaque:  #44D18D;
+  --branco:          #F5F5F5;
+  --cinza-claro:     #E5E5E5;
+
+  /* Cores derivadas para uso interno */
+  --texto-escuro:    #1a1a2e;
+  --texto-medio:     #3a3a5c;
+  --texto-claro:     #F5F5F5;
+  --sombra-card:     0 4px 20px rgba(0, 31, 91, 0.12);
+  --sombra-hover:    0 8px 32px rgba(0, 31, 91, 0.22);
+  --borda-raio:      12px;
+  --borda-raio-sm:   8px;
+  --transicao:       all 0.3s ease;
+
+  /* Tipografia */
+  --fonte-principal: 'Poppins', sans-serif;
+
+  /* Espaçamentos */
+  --secao-padding:   80px 0;
+  --container-max:   1200px;
+  --container-px:    clamp(16px, 4vw, 48px);
+}
+
+
+/* =============================================================
+   2. RESET & BASE
+   ============================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* Smooth scroll nativo — sem JavaScript */
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--fonte-principal);
+  font-weight: 400;
+  color: var(--texto-escuro);
+  background-color: var(--branco);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Imagens responsivas por padrão */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Remove estilo padrão de listas */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remove decoração padrão de links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Foco visível para navegação por teclado */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+label:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--verde-destaque);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+
+/* =============================================================
+   3. UTILITÁRIOS
+   ============================================================= */
+
+/* Container responsivo centralizado */
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-px);
+  width: 100%;
+}
+
+/* Classe de acessibilidade — esconde visualmente, mantém para leitores de tela */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Label de seção (badge acima do título) */
+.label-secao {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--verde-destaque);
+  margin-bottom: 8px;
+}
+
+.label-secao--claro {
+  color: var(--verde-destaque);
+}
+
+/* Título padrão de seção */
+.secao-titulo {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--azul-principal);
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.secao-titulo--claro {
+  color: var(--branco);
+}
+
+/* Subtítulo de seção */
+.secao-subtitulo {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--texto-medio);
+  max-width: 600px;
+  margin-bottom: 48px;
+}
+
+
+/* =============================================================
+   4. BOTÕES
+   ============================================================= */
+
+/* Base comum a todos os botões */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-family: var(--fonte-principal);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: var(--transicao);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Botão destaque (hero) — verde sobre azul escuro */
+.btn--destaque {
+  background-color: var(--verde-destaque);
+  color: var(--azul-escuro);
+  border-color: var(--verde-destaque);
+}
+
+.btn--destaque:hover,
+.btn--destaque:focus-visible {
+  background-color: transparent;
+  color: var(--verde-destaque);
+  border-color: var(--verde-destaque);
+  transform: translateY(-2px);
+}
+
+/* Botão secundário (cards de livros) */
+.btn--secundario {
+  background-color: var(--azul-principal);
+  color: var(--branco);
+  border-color: var(--azul-principal);
+  padding: 10px 24px;
+  font-size: 0.875rem;
+}
+
+.btn--secundario:hover,
+.btn--secundario:focus-visible {
+  background-color: var(--verde-destaque);
+  color: var(--azul-escuro);
+  border-color: var(--verde-destaque);
+  transform: translateY(-2px);
+}
+
+/* Botão outline (unidades) */
+.btn--outline {
+  background-color: transparent;
+  color: var(--azul-principal);
+  border-color: var(--azul-principal);
+  padding: 10px 24px;
+  font-size: 0.875rem;
+}
+
+.btn--outline:hover,
+.btn--outline:focus-visible {
+  background-color: var(--azul-principal);
+  color: var(--branco);
+  transform: translateY(-2px);
+}
+
+
+/* =============================================================
+   5. HEADER / NAVEGAÇÃO
+   ============================================================= */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: var(--azul-escuro);
+  /* Detalhe inferior verde */
+  border-bottom: 3px solid var(--verde-destaque);
+  /* Sombra sutil para profundidade */
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Nav: flexbox com logo + lista de links */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  gap: 24px;
+}
+
+/* Logo */
+.nav__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--branco);
+  font-size: 1rem;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.nav__logo-icon {
+  font-size: 1.5rem;
+}
+
+.nav__logo-text strong {
+  color: var(--verde-destaque);
+  font-weight: 700;
+}
+
+/* Lista de links */
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav__link {
+  color: var(--branco);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 50px;
+  transition: var(--transicao);
+  position: relative;
+}
+
+/* Hover: fundo verde com texto escuro */
+.nav__link:hover,
+.nav__link:focus-visible {
+  color: var(--azul-escuro);
+  background-color: var(--verde-destaque);
+}
+
+/* ---- Hambúrguer (CSS only) ---- */
+/* Esconde o checkbox real */
+.nav__toggle-input {
+  display: none;
+}
+
+/* Esconde o botão hambúrguer no desktop */
+.nav__toggle-label {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  transition: var(--transicao);
+}
+
+.nav__toggle-label:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav__toggle-bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--branco);
+  border-radius: 2px;
+  transition: var(--transicao);
+}
+
+
+/* =============================================================
+   6. HERO / BANNER PRINCIPAL
+   ============================================================= */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  /* Espaço do header fixo */
+  padding-top: 68px;
+}
+
+/* Imagem de fundo (object-fit para cobrir sem distorção) */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+/* Overlay azul escuro semi-transparente */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 21, 68, 0.88) 0%,
+    rgba(0, 31, 91, 0.72) 60%,
+    rgba(0, 31, 91, 0.50) 100%
+  );
+  z-index: 1;
+}
+
+/* Conteúdo do hero sobre o overlay */
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding-block: 80px;
+}
+
+.hero__titulo {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--branco);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+/* Destaque verde no título */
+.hero__titulo::after {
+  content: '';
+  display: block;
+  width: 72px;
+  height: 4px;
+  background-color: var(--verde-destaque);
+  border-radius: 4px;
+  margin-top: 16px;
+}
+
+.hero__subtitulo {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 300;
+  color: rgba(245, 245, 245, 0.88);
+  margin-bottom: 36px;
+  max-width: 500px;
+}
+
+
+/* =============================================================
+   7. SEÇÃO BIBLIOTECA (Sobre + Cards de Categoria)
+   ============================================================= */
+
+.biblioteca {
+  padding: var(--secao-padding);
+  background-color: var(--branco);
+}
+
+/* Grid de duas colunas: texto | imagem */
+.biblioteca__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  margin-bottom: 64px;
+}
+
+.biblioteca__texto p {
+  color: var(--texto-medio);
+  margin-bottom: 16px;
+  font-size: 0.975rem;
+}
+
+.biblioteca__texto p:last-child {
+  margin-bottom: 0;
+}
+
+/* Imagem com borda arredondada e sombra */
+.biblioteca__img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: var(--borda-raio);
+  box-shadow: var(--sombra-card);
+}
+
+/* ---- Cards de Categorias ---- */
+.categorias {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.categoria-card {
+  background-color: var(--branco);
+  border: 1px solid var(--cinza-claro);
+  border-radius: var(--borda-raio);
+  padding: 28px 20px;
+  text-align: center;
+  box-shadow: var(--sombra-card);
+  transition: var(--transicao);
+  cursor: default;
+  /* Borda superior verde como destaque */
+  border-top: 4px solid var(--verde-destaque);
+}
+
+.categoria-card:hover,
+.categoria-card:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-hover);
+  border-top-color: var(--azul-principal);
+}
+
+.categoria-card__icone {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.categoria-card__titulo {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--azul-principal);
+  margin-bottom: 8px;
+}
+
+.categoria-card__desc {
+  font-size: 0.85rem;
+  color: var(--texto-medio);
+  line-height: 1.5;
+}
+
+
+/* =============================================================
+   8. BANNER INTERMEDIÁRIO (decorativo)
+   ============================================================= */
+
+.banner-intermediario {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+}
+
+.banner-intermediario__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+/* Overlay azul suave para transição visual */
+.banner-intermediario__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 21, 68, 0.65) 0%,
+    rgba(0, 31, 91, 0.40) 50%,
+    rgba(0, 21, 68, 0.65) 100%
+  );
+}
+
+
+/* =============================================================
+   9. NOSSOS LIVROS
+   ============================================================= */
+
+.livros {
+  padding: var(--secao-padding);
+  background-color: var(--cinza-claro);
+}
+
+/* Grid de 3 colunas no desktop */
+.livros__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* Card de livro */
+.livro-card {
+  background-color: var(--branco);
+  border-radius: var(--borda-raio);
+  overflow: hidden;
+  box-shadow: var(--sombra-card);
+  transition: var(--transicao);
+  display: flex;
+  flex-direction: column;
+}
+
+.livro-card:hover,
+.livro-card:focus-visible {
+  transform: translateY(-8px);
+  box-shadow: var(--sombra-hover);
+}
+
+/* Wrapper da imagem com aspect ratio fixo */
+.livro-card__imagem-wrapper {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: var(--cinza-claro);
+}
+
+.livro-card__imagem {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.livro-card:hover .livro-card__imagem {
+  transform: scale(1.05);
+}
+
+/* Corpo do card */
+.livro-card__corpo {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 8px;
+}
+
+/* Badge de categoria */
+.livro-card__categoria {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--verde-destaque);
+  background-color: rgba(68, 209, 141, 0.12);
+  padding: 3px 10px;
+  border-radius: 50px;
+  width: fit-content;
+}
+
+.livro-card__titulo {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--azul-principal);
+  line-height: 1.3;
+}
+
+.livro-card__desc {
+  font-size: 0.875rem;
+  color: var(--texto-medio);
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* Botão do card fica no final */
+.livro-card__corpo .btn {
+  margin-top: 8px;
+  align-self: flex-start;
+}
+
+
+/* =============================================================
+   10. AS UNIDADES
+   ============================================================= */
+
+.unidades {
+  padding: var(--secao-padding);
+  background-color: var(--branco);
+}
+
+/* Cada bloco de unidade: imagem à esquerda, texto à direita */
+.unidade-bloco {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  margin-bottom: 64px;
+  padding: 40px;
+  border-radius: var(--borda-raio);
+  background-color: var(--branco);
+  box-shadow: var(--sombra-card);
+  transition: var(--transicao);
+}
+
+.unidade-bloco:last-child {
+  margin-bottom: 0;
+}
+
+.unidade-bloco:hover,
+.unidade-bloco:focus-visible {
+  box-shadow: var(--sombra-hover);
+}
+
+/* Bloco invertido: imagem à direita, texto à esquerda */
+.unidade-bloco--invertido {
+  direction: rtl;
+}
+
+.unidade-bloco--invertido > * {
+  direction: ltr;
+}
+
+/* Imagem da unidade */
+.unidade-bloco__imagem-wrapper {
+  border-radius: var(--borda-raio);
+  overflow: hidden;
+  height: 320px;
+}
+
+.unidade-bloco__imagem {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.unidade-bloco:hover .unidade-bloco__imagem {
+  transform: scale(1.03);
+}
+
+/* Conteúdo textual */
+.unidade-bloco__numero {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--cinza-claro);
+  line-height: 1;
+  display: block;
+  margin-bottom: -8px;
+}
+
+.unidade-bloco__titulo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--azul-principal);
+  margin-bottom: 16px;
+  /* Linha verde abaixo do título */
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--verde-destaque);
+  display: inline-block;
+}
+
+.unidade-bloco__desc {
+  font-size: 0.975rem;
+  color: var(--texto-medio);
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+
+
+/* =============================================================
+   11. CONTATO
+   ============================================================= */
+
+.contato {
+  padding: var(--secao-padding);
+  background-color: var(--azul-principal);
+}
+
+/* Grid de duas colunas: info | imagem */
+.contato__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.contato__texto {
+  color: rgba(245, 245, 245, 0.82);
+  font-size: 0.975rem;
+  margin-bottom: 36px;
+  line-height: 1.75;
+}
+
+/* Lista de itens de contato */
+.contato__endereco {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contato__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 20px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border-radius: var(--borda-raio-sm);
+  border-left: 3px solid var(--verde-destaque);
+  transition: var(--transicao);
+}
+
+.contato__item:hover {
+  background-color: rgba(255, 255, 255, 0.10);
+}
+
+.contato__icone {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contato__item-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.contato__item-texto strong {
+  color: var(--branco);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.contato__item-texto span {
+  color: rgba(245, 245, 245, 0.75);
+  font-size: 0.875rem;
+}
+
+.contato__link {
+  color: var(--verde-destaque);
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: var(--transicao);
+  word-break: break-all;
+}
+
+.contato__link:hover,
+.contato__link:focus-visible {
+  color: var(--branco);
+  text-decoration: underline;
+}
+
+/* Imagem do contato */
+.contato__imagem-wrapper {
+  border-radius: var(--borda-raio);
+  overflow: hidden;
+  height: 420px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+}
+
+.contato__imagem {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* =============================================================
+   12. RODAPÉ
+   ============================================================= */
+
+.rodape {
+  background-color: var(--azul-escuro);
+  padding: 32px 0;
+  border-top: 3px solid var(--verde-destaque);
+}
+
+.rodape__grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Marca / logo do rodapé */
+.rodape__marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--branco);
+}
+
+.rodape__icone {
+  font-size: 1.4rem;
+}
+
+.rodape__nome {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--branco);
+}
+
+.rodape__nome strong {
+  color: var(--verde-destaque);
+}
+
+/* Links de navegação do rodapé */
+.rodape__nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.rodape__link {
+  color: rgba(245, 245, 245, 0.7);
+  font-size: 0.875rem;
+  padding: 6px 12px;
+  border-radius: 50px;
+  transition: var(--transicao);
+}
+
+.rodape__link:hover,
+.rodape__link:focus-visible {
+  color: var(--branco);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Copyright */
+.rodape__copy {
+  text-align: right;
+}
+
+.rodape__copy p {
+  font-size: 0.8rem;
+  color: rgba(245, 245, 245, 0.55);
+  line-height: 1.6;
+}
+
+
+/* =============================================================
+   13. RESPONSIVIDADE — MEDIA QUERIES
+   ============================================================= */
+
+/* ------------------------------------------------------------------
+   TABLET GRANDE: até 1024px
+   ------------------------------------------------------------------ */
+@media (max-width: 1024px) {
+
+  /* Categorias: 2 colunas */
+  .categorias {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Livros: 2 colunas */
+  .livros__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Unidades: stack vertical */
+  .unidade-bloco {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px;
+  }
+
+  /* Remove efeito de inversão (torna linear em tablet) */
+  .unidade-bloco--invertido {
+    direction: ltr;
+  }
+
+  .unidade-bloco__imagem-wrapper {
+    height: 260px;
+  }
+}
+
+
+/* ------------------------------------------------------------------
+   TABLET: até 768px
+   ------------------------------------------------------------------ */
+@media (max-width: 768px) {
+
+  :root {
+    --secao-padding: 56px 0;
+  }
+
+  /* ---- Header ---- */
+  .nav__toggle-label {
+    display: flex;
+  }
+
+  /* A lista de links vira menu dropdown vertical */
+  .nav__list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--azul-escuro);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    flex-direction: column;
+    padding: 16px 24px;
+    gap: 4px;
+    /* Escondido por padrão */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+  }
+
+  /* Abre o menu quando o checkbox está marcado */
+  .nav__toggle-input:checked ~ .nav__list {
+    max-height: 320px;
+    padding: 16px 24px;
+  }
+
+  .nav__link {
+    display: block;
+    padding: 10px 16px;
+    border-radius: var(--borda-raio-sm);
+    width: 100%;
+  }
+
+  /* Animação das barras do hambúrguer → X */
+  .nav__toggle-input:checked ~ .nav__toggle-label .nav__toggle-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav__toggle-input:checked ~ .nav__toggle-label .nav__toggle-bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .nav__toggle-input:checked ~ .nav__toggle-label .nav__toggle-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* ---- Hero ---- */
+  .hero__content {
+    padding-block: 56px;
+  }
+
+  /* ---- Biblioteca: 1 coluna ---- */
+  .biblioteca__grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    margin-bottom: 40px;
+  }
+
+  .biblioteca__img {
+    height: 300px;
+  }
+
+  /* ---- Categorias: 2 colunas ---- */
+  .categorias {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* ---- Banner intermediário: menor ---- */
+  .banner-intermediario {
+    height: 180px;
+  }
+
+  /* ---- Livros: 1 coluna ---- */
+  .livros__grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin-inline: auto;
+  }
+
+  /* ---- Contato: 1 coluna ---- */
+  .contato__grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .contato__imagem-wrapper {
+    height: 280px;
+    order: -1;
+  }
+
+  /* ---- Rodapé ---- */
+  .rodape__grid {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .rodape__copy {
+    text-align: left;
+  }
+}
+
+
+/* ------------------------------------------------------------------
+   MOBILE: até 480px
+   ------------------------------------------------------------------ */
+@media (max-width: 480px) {
+
+  :root {
+    --secao-padding: 48px 0;
+  }
+
+  /* ---- Hero ---- */
+  .hero {
+    min-height: 90vh;
+  }
+
+  .hero__titulo {
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+  }
+
+  .hero__subtitulo {
+    font-size: 0.95rem;
+  }
+
+  /* ---- Categorias: 2 colunas compactas ---- */
+  .categorias {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .categoria-card {
+    padding: 20px 14px;
+  }
+
+  /* ---- Livros: 1 coluna ---- */
+  .livros__grid {
+    max-width: 100%;
+  }
+
+  /* ---- Unidades ---- */
+  .unidade-bloco {
+    padding: 24px;
+  }
+
+  .unidade-bloco__numero {
+    font-size: 2.5rem;
+  }
+
+  /* ---- Rodapé ---- */
+  .rodape__nav {
+    gap: 4px;
+  }
+}
+
+
+/* ------------------------------------------------------------------
+   MOBILE PEQUENO: até 375px
+   ------------------------------------------------------------------ */
+@media (max-width: 375px) {
+
+  /* ---- Categorias: 1 coluna ---- */
+  .categorias {
+    grid-template-columns: 1fr;
+  }
+
+  /* Botão do hero responsivo */
+  .btn--destaque {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+}
+
+
+/* =============================================================
+   14. AJUSTES DE ACESSIBILIDADE ADICIONAIS
+   ============================================================= */
+
+/* Garante contraste adequado para texto sobre fundos escuros */
+@media (prefers-color-scheme: dark) {
+  /* A página mantém sua identidade visual independente
+     do tema do sistema — sem modo escuro automático */
+}
+
+/* Reduz animações para usuários com preferência */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Garante tamanho mínimo de toque para elementos interativos (acessibilidade mobile) */
+.btn,
+.nav__link,
+.rodape__link {
+  min-height: 44px;
+  min-width: 44px;
+}

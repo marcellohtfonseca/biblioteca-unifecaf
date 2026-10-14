@@ -1,0 +1,750 @@
+/* =============================================================
+   WIREFRAME — Biblioteca Digital UniFECAF
+   Protótipo de baixa fidelidade
+   Paleta: somente tons de cinza + preto
+   Sem cores da marca, sem imagens reais
+   ============================================================= */
+
+/* =============================================================
+   1. RESET & BASE
+   ============================================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+/* =============================================================
+   2. CONTAINER
+   ============================================================= */
+.wf-container {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding-inline: 40px;
+  width: 100%;
+}
+
+/* =============================================================
+   3. BADGE DE WIREFRAME (fixo no topo)
+   ============================================================= */
+.wf-badge {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  background-color: #222;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 6px 14px;
+  border-bottom-left-radius: 8px;
+  pointer-events: none;
+}
+
+/* =============================================================
+   4. ANOTAÇÕES DO WIREFRAME
+   ============================================================= */
+.wf-annotation {
+  position: relative;
+  background-color: #fffbe6;
+  border: 1px dashed #aaa;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  color: #666;
+  padding: 6px 12px;
+  margin-top: 12px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.wf-annotation--header {
+  margin-top: 0;
+  border-radius: 0;
+  border-top: 1px dashed #aaa;
+}
+
+.wf-annotation--inline {
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
+.wf-annotation--inv {
+  background-color: rgba(255, 251, 230, 0.12);
+  border-color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.7);
+}
+
+.wf-annotation--over {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 90%;
+}
+
+/* =============================================================
+   5. PRIMITIVOS — LINHAS DE TEXTO (placeholder de conteúdo)
+   ============================================================= */
+.wf-line {
+  height: 12px;
+  background-color: #ccc;
+  border-radius: 3px;
+  margin-bottom: 8px;
+}
+
+/* Larguras */
+.wf-line--xs  { width: 60px; }
+.wf-line--sm  { width: 100px; }
+.wf-line--md  { width: 180px; }
+.wf-line--lg  { width: 260px; }
+.wf-line--xl  { width: 340px; }
+.wf-line--full{ width: 100%; }
+
+/* Variantes */
+.wf-line--light { background-color: #ddd; height: 10px; }
+.wf-line--inv   { background-color: rgba(255,255,255,0.25); }
+
+/* Centralizado */
+.wf-center { margin-inline: auto; }
+
+/* Linha de título (mais alta) */
+.wf-titulo-linha {
+  height: 18px;
+  background-color: #aaa;
+  margin-bottom: 8px;
+}
+
+.wf-titulo-linha--inv {
+  background-color: rgba(255,255,255,0.4);
+}
+
+/* =============================================================
+   6. PRIMITIVOS — CAIXAS / BOXES
+   ============================================================= */
+.wf-box {
+  background-color: #bbb;
+  border-radius: 4px;
+}
+
+.wf-box--xs    { width: 32px; height: 32px; border-radius: 4px; flex-shrink: 0; }
+.wf-box--nav   { width: 72px; height: 32px; border-radius: 4px; }
+.wf-box--icon  { width: 48px; height: 48px; border-radius: 50%; margin-inline: auto; margin-bottom: 10px; }
+.wf-box--icon-sm { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; background-color: rgba(255,255,255,0.2); }
+
+/* =============================================================
+   7. PRIMITIVOS — PLACEHOLDER DE IMAGEM
+   ============================================================= */
+.wf-img-placeholder {
+  background-color: #d0d0d0;
+  border: 2px dashed #aaa;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Padrão de grade interna (visual de wireframe) */
+.wf-img-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Linhas diagonais (X) */
+.wf-img-placeholder::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom right, transparent calc(50% - 1px), #aaa calc(50% - 1px), #aaa calc(50% + 1px), transparent calc(50% + 1px)),
+    linear-gradient(to bottom left, transparent calc(50% - 1px), #aaa calc(50% - 1px), #aaa calc(50% + 1px), transparent calc(50% + 1px));
+}
+
+.wf-img-label {
+  position: relative;
+  z-index: 1;
+  font-size: 0.72rem;
+  color: #666;
+  text-align: center;
+  line-height: 1.6;
+  background-color: rgba(240,240,240,0.85);
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+/* Tamanhos de placeholder */
+.wf-img-placeholder--tall  { height: 280px; }
+.wf-img-placeholder--livro { height: 160px; }
+.wf-img-placeholder--unidade { height: 240px; flex-shrink: 0; }
+
+/* =============================================================
+   8. PRIMITIVOS — BOTÕES
+   ============================================================= */
+.wf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-family: monospace;
+  border: 2px solid #555;
+  background-color: #555;
+  color: #fff;
+  font-weight: bold;
+  cursor: default;
+  letter-spacing: 0.5px;
+  width: fit-content;
+}
+
+.wf-btn--primary {
+  background-color: #444;
+  border-color: #444;
+  padding: 14px 32px;
+  font-size: 0.9rem;
+  margin-top: 16px;
+}
+
+.wf-btn--sm {
+  padding: 8px 18px;
+  font-size: 0.75rem;
+  margin-top: 12px;
+  background-color: #666;
+  border-color: #666;
+}
+
+.wf-btn--outline {
+  background-color: transparent;
+  color: #444;
+  border-color: #888;
+  margin-top: 16px;
+}
+
+/* =============================================================
+   9. BADGE DE CATEGORIA (cards de livro)
+   ============================================================= */
+.wf-badge-categoria {
+  display: inline-block;
+  background-color: #ddd;
+  border-radius: 50px;
+  padding: 3px 10px;
+  font-size: 0.7rem;
+  color: #666;
+  font-family: monospace;
+  width: fit-content;
+}
+
+/* =============================================================
+   10. LABEL DE SEÇÃO
+   ============================================================= */
+.wf-label {
+  font-size: 0.72rem;
+  font-family: monospace;
+  color: #888;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.wf-label--inv {
+  color: rgba(255,255,255,0.5);
+}
+
+/* =============================================================
+   11. SPACER
+   ============================================================= */
+.wf-spacer {
+  height: 16px;
+}
+
+/* =============================================================
+   12. HEADER
+   ============================================================= */
+.wf-header {
+  background-color: #333;
+  border-bottom: 4px solid #777;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.wf-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.wf-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wf-logo__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.wf-nav {
+  display: flex;
+  gap: 8px;
+}
+
+/* =============================================================
+   13. HERO
+   ============================================================= */
+.wf-hero {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.wf-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-color: #c0c0c0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #aaa;
+}
+
+/* Diagonal no fundo do hero */
+.wf-hero__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom right, transparent calc(50% - 1px), #aaa calc(50% - 1px), #aaa calc(50% + 1px), transparent calc(50% + 1px)),
+    linear-gradient(to bottom left, transparent calc(50% - 1px), #aaa calc(50% - 1px), #aaa calc(50% + 1px), transparent calc(50% + 1px));
+}
+
+.wf-hero__bg .wf-img-label {
+  position: relative;
+  z-index: 1;
+}
+
+.wf-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0,0,0,0.45);
+  z-index: 1;
+}
+
+.wf-hero__content {
+  position: relative;
+  z-index: 2;
+  padding-block: 80px;
+}
+
+.wf-hero__titulo {
+  margin-bottom: 16px;
+}
+
+.wf-hero__titulo .wf-line {
+  background-color: rgba(255,255,255,0.7);
+  height: 24px;
+}
+
+.wf-hero__subtitulo {
+  margin-bottom: 8px;
+}
+
+.wf-hero__subtitulo .wf-line {
+  background-color: rgba(255,255,255,0.4);
+  height: 14px;
+}
+
+.wf-arrow {
+  margin-top: 10px;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.6);
+  font-family: monospace;
+  font-style: italic;
+}
+
+/* =============================================================
+   14. SEÇÕES — BASE
+   ============================================================= */
+.wf-section {
+  padding: 64px 0;
+  position: relative;
+}
+
+.wf-section-header {
+  margin-bottom: 32px;
+}
+
+/* =============================================================
+   15. BIBLIOTECA (2 colunas)
+   ============================================================= */
+.wf-biblioteca {
+  background-color: #f8f8f8;
+}
+
+/* =============================================================
+   16. GRID HELPERS
+   ============================================================= */
+
+/* 2 colunas iguais */
+.wf-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* 3 colunas */
+.wf-three-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 16px;
+}
+
+/* 4 colunas */
+.wf-four-col {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* =============================================================
+   17. CARDS DE CATEGORIA
+   ============================================================= */
+.wf-card--categoria {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-top: 4px solid #aaa;
+  border-radius: 8px;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.wf-card__label {
+  font-size: 0.7rem;
+  font-family: monospace;
+  color: #888;
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* =============================================================
+   18. BANNER INTERMEDIÁRIO
+   ============================================================= */
+.wf-banner-intermediario {
+  height: 220px;
+  background-color: #bbb;
+  border-top: 2px dashed #999;
+  border-bottom: 2px dashed #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Diagonal */
+.wf-banner-intermediario::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.wf-banner-intermediario::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom right, transparent calc(50% - 1px), #999 calc(50% - 1px), #999 calc(50% + 1px), transparent calc(50% + 1px)),
+    linear-gradient(to bottom left, transparent calc(50% - 1px), #999 calc(50% - 1px), #999 calc(50% + 1px), transparent calc(50% + 1px));
+}
+
+.wf-banner-intermediario .wf-img-label {
+  position: relative;
+  z-index: 1;
+  font-size: 0.75rem;
+}
+
+/* =============================================================
+   19. CARDS DE LIVRO
+   ============================================================= */
+.wf-livros {
+  background-color: #eee;
+}
+
+.wf-card--livro {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.wf-card__body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wf-card--livro .wf-card__label {
+  font-size: 0.65rem;
+  font-family: monospace;
+  color: #999;
+  text-align: center;
+  padding: 4px 8px;
+  background-color: #f5f5f5;
+  border-top: 1px dashed #ddd;
+}
+
+/* =============================================================
+   20. UNIDADES
+   ============================================================= */
+.wf-unidades {
+  background-color: #f8f8f8;
+}
+
+.wf-unidade-bloco {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 32px;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+/* Bloco invertido */
+.wf-unidade-bloco--inv {
+  direction: rtl;
+}
+.wf-unidade-bloco--inv > * {
+  direction: ltr;
+}
+
+.wf-unidade__conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wf-unidade__num {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ddd;
+  line-height: 1;
+  font-family: monospace;
+}
+
+.wf-unidade__titulo-label {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  font-size: 0.65rem;
+  font-family: monospace;
+  color: #999;
+  text-align: center;
+  padding: 3px 8px;
+  background-color: #f5f5f5;
+  border-top: 1px dashed #ddd;
+  border-radius: 0 0 8px 8px;
+}
+
+/* =============================================================
+   21. CONTATO
+   ============================================================= */
+.wf-contato {
+  background-color: #444;
+  padding: 64px 0;
+}
+
+.wf-contato-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: rgba(255,255,255,0.07);
+  border-left: 3px solid #888;
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+/* =============================================================
+   22. RODAPÉ
+   ============================================================= */
+.wf-rodape {
+  background-color: #222;
+  padding: 28px 0;
+  border-top: 4px solid #666;
+  position: relative;
+}
+
+.wf-rodape__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.wf-rodape__marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wf-rodape__nav {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.wf-rodape__nav .wf-line {
+  width: 60px;
+  height: 10px;
+}
+
+.wf-rodape__copy {
+  text-align: right;
+}
+
+/* =============================================================
+   23. LEGENDA
+   ============================================================= */
+.wf-legenda {
+  background-color: #fff;
+  border-top: 3px solid #ccc;
+  padding: 32px 40px;
+}
+
+.wf-legenda h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #666;
+  margin-bottom: 20px;
+  font-family: monospace;
+}
+
+.wf-legenda__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.wf-legenda__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  color: #555;
+  font-family: monospace;
+}
+
+.wf-legenda__amostra {
+  flex-shrink: 0;
+  height: 32px;
+  min-width: 60px;
+}
+
+/* =============================================================
+   24. RESPONSIVIDADE
+   ============================================================= */
+
+@media (max-width: 900px) {
+  .wf-four-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .wf-three-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .wf-two-col {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .wf-unidade-bloco {
+    grid-template-columns: 1fr;
+  }
+
+  .wf-unidade-bloco--inv {
+    direction: ltr;
+  }
+
+  .wf-img-placeholder--tall {
+    height: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .wf-container {
+    padding-inline: 20px;
+  }
+
+  .wf-four-col,
+  .wf-three-col {
+    grid-template-columns: 1fr;
+  }
+
+  .wf-hero {
+    min-height: 380px;
+  }
+
+  .wf-nav {
+    display: none;
+  }
+
+  /* Hambúrguer simplificado */
+  .wf-header__inner::after {
+    content: '[ ☰ ]';
+    color: #ccc;
+    font-family: monospace;
+    font-size: 1.2rem;
+  }
+
+  .wf-rodape__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .wf-rodape__copy {
+    text-align: left;
+  }
+}

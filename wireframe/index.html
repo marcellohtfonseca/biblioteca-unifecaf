@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wireframe — Biblioteca Digital UniFECAF</title>
+  <link rel="stylesheet" href="wireframe.css" />
+</head>
+<body>
+
+  <!-- Indicador de wireframe -->
+  <div class="wf-badge">WIREFRAME — Low Fidelity</div>
+
+  <!-- ==========================================
+       HEADER
+  ========================================== -->
+  <header class="wf-header">
+    <div class="wf-container wf-header__inner">
+
+      <!-- Logo placeholder -->
+      <div class="wf-logo">
+        <div class="wf-logo__icon wf-box wf-box--xs"></div>
+        <div class="wf-logo__text">
+          <div class="wf-line wf-line--md"></div>
+        </div>
+      </div>
+
+      <!-- Nav links -->
+      <nav class="wf-nav">
+        <div class="wf-nav__item wf-box wf-box--nav"></div>
+        <div class="wf-nav__item wf-box wf-box--nav"></div>
+        <div class="wf-nav__item wf-box wf-box--nav"></div>
+        <div class="wf-nav__item wf-box wf-box--nav"></div>
+      </nav>
+
+    </div>
+    <!-- Anotação -->
+    <div class="wf-annotation wf-annotation--header">
+      Header fixo · fundo escuro · borda inferior colorida · 4 links de navegação
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ==========================================
+         HERO / BANNER PRINCIPAL
+    ========================================== -->
+    <section class="wf-section wf-hero">
+      <div class="wf-hero__bg">
+        <span class="wf-img-label">IMAGEM DE FUNDO<br/>biblioteca moderna<br/>1920 × 1080px</span>
+      </div>
+      <div class="wf-hero__overlay"></div>
+      <div class="wf-container wf-hero__content">
+        <div class="wf-hero__titulo">
+          <div class="wf-line wf-line--xl"></div>
+          <div class="wf-line wf-line--lg" style="margin-top:8px;"></div>
+        </div>
+        <div class="wf-hero__subtitulo">
+          <div class="wf-line wf-line--md wf-line--light"></div>
+        </div>
+        <div class="wf-btn wf-btn--primary">[ EXPLORAR ACERVO ]</div>
+        <div class="wf-arrow">↓ leva à seção Livros</div>
+      </div>
+      <div class="wf-annotation">
+        Hero full-screen · overlay escuro sobre imagem · título H1 · subtítulo · botão CTA
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SOBRE NOSSA BIBLIOTECA
+    ========================================== -->
+    <section class="wf-section wf-biblioteca">
+      <div class="wf-container">
+
+        <div class="wf-section-header">
+          <div class="wf-label">[ label: Sobre nós ]</div>
+          <div class="wf-line wf-line--lg wf-titulo-linha"></div>
+        </div>
+
+        <!-- Grid 2 colunas -->
+        <div class="wf-two-col">
+
+          <!-- Coluna texto -->
+          <div class="wf-col">
+            <div class="wf-annotation wf-annotation--inline">Coluna Esquerda — Texto institucional</div>
+            <div class="wf-line wf-line--full"></div>
+            <div class="wf-line wf-line--full"></div>
+            <div class="wf-line wf-line--lg"></div>
+            <div class="wf-spacer"></div>
+            <div class="wf-line wf-line--full"></div>
+            <div class="wf-line wf-line--full"></div>
+            <div class="wf-line wf-line--md"></div>
+            <div class="wf-spacer"></div>
+            <div class="wf-line wf-line--full"></div>
+            <div class="wf-line wf-line--xl"></div>
+          </div>
+
+          <!-- Coluna imagem -->
+          <div class="wf-col">
+            <div class="wf-annotation wf-annotation--inline">Coluna Direita — Imagem</div>
+            <div class="wf-img-placeholder wf-img-placeholder--tall">
+              <span class="wf-img-label">IMAGEM<br/>biblioteca.jpg<br/>900 × 600px</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Cards de categorias -->
+        <div class="wf-annotation" style="margin-top:32px;">4 cards de categoria — grid 4 colunas no desktop</div>
+        <div class="wf-four-col" style="margin-top:8px;">
+
+          <div class="wf-card wf-card--categoria">
+            <div class="wf-card__icon wf-box wf-box--icon"></div>
+            <div class="wf-line wf-line--sm wf-center"></div>
+            <div class="wf-line wf-line--xs wf-center wf-line--light"></div>
+            <div class="wf-card__label">Tecnologia</div>
+          </div>
+
+          <div class="wf-card wf-card--categoria">
+            <div class="wf-card__icon wf-box wf-box--icon"></div>
+            <div class="wf-line wf-line--sm wf-center"></div>
+            <div class="wf-line wf-line--xs wf-center wf-line--light"></div>
+            <div class="wf-card__label">Administração</div>
+          </div>
+
+          <div class="wf-card wf-card--categoria">
+            <div class="wf-card__icon wf-box wf-box--icon"></div>
+            <div class="wf-line wf-line--sm wf-center"></div>
+            <div class="wf-line wf-line--xs wf-center wf-line--light"></div>
+            <div class="wf-card__label">Saúde</div>
+          </div>
+
+          <div class="wf-card wf-card--categoria">
+            <div class="wf-card__icon wf-box wf-box--icon"></div>
+            <div class="wf-line wf-line--sm wf-center"></div>
+            <div class="wf-line wf-line--xs wf-center wf-line--light"></div>
+            <div class="wf-card__label">Educação</div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="wf-annotation">
+        Seção Biblioteca · layout 2 colunas · 4 cards com ícone + título + descrição
+      </div>
+    </section>
+
+    <!-- ==========================================
+         BANNER INTERMEDIÁRIO
+    ========================================== -->
+    <div class="wf-banner-intermediario">
+      <span class="wf-img-label">BANNER DECORATIVO — sem texto<br/>Apenas transição visual<br/>1920 × 280px</span>
+      <div class="wf-annotation wf-annotation--over">
+        Faixa visual decorativa · imagem horizontal de livros · sem conteúdo textual
+      </div>
+    </div>
+
+    <!-- ==========================================
+         NOSSOS LIVROS
+    ========================================== -->
+    <section class="wf-section wf-livros">
+      <div class="wf-container">
+
+        <div class="wf-section-header">
+          <div class="wf-label">[ label: Acervo ]</div>
+          <div class="wf-line wf-line--lg wf-titulo-linha"></div>
+          <div class="wf-line wf-line--xl wf-line--light" style="margin-top:8px;"></div>
+        </div>
+
+        <div class="wf-annotation">6 cards de livros — grid 3 colunas desktop / 1 coluna mobile</div>
+
+        <!-- Grid 3 colunas -->
+        <div class="wf-three-col">
+
+          <!-- Card livro (repete 6x) -->
+          <div class="wf-card wf-card--livro">
+            <div class="wf-img-placeholder wf-img-placeholder--livro">
+              <span class="wf-img-label">livro1.jpg</span>
+            </div>
+            <div class="wf-card__body">
+              <div class="wf-badge-categoria">[ categoria ]</div>
+              <div class="wf-line wf-line--md" style="margin-top:8px;"></div>
+              <div class="wf-line wf-line--full wf-line--light"></div>
+              <div class="wf-line wf-line--xl wf-line--light"></div>
+              <div class="wf-btn wf-btn--sm">[ Saiba Mais ]</div>
+            </div>
+            <div class="wf-card__label">HTML5 Moderno</div>
+          </div>
+
+          <div class="wf-card wf-card--livro">
+            <div class="wf-img-placeholder wf-img-placeholder--livro">
+              <span class="wf-img-label">livro2.jpg</span>
+            </div>
+            <div class="wf-card__body">
+              <div class="wf-badge-categoria">[ categoria ]</div>
+              <div class="wf-line wf-line--md" style="margin-top:8px;"></div>
+              <div class="wf-line wf-line--full wf-line--light"></div>
+              <div class="wf-line wf-line--xl wf-line--light"></div>
+              <div class="wf-btn wf-btn--sm">[ Saiba Mais ]</div>
+            </div>
+            <div class="wf-card__label">CSS Responsivo</div>
+          </div>
+
+          <div class="wf-card wf-card--livro">
+            <div class="wf-img-placeholder wf-img-placeholder--livro">
+              <span class="wf-img-label">livro3.jpg</span>
+            </div>
+            <div class="wf-card__body">
+              <div class="wf-badge-categoria">[ categoria ]</div>
+              <div class="wf-line wf-line--md" style="margin-top:8px;"></div>
+              <div class="wf-line wf-line--full wf-line--light"></div>
+              <div class="wf-line wf-line--xl wf-line--light"></div>
+              <div class="wf-btn wf-btn--sm">[ Saiba Mais ]</div>
+            </div>
+            <div class="wf-card__label">JavaScript Essencial</div>
+          </div>
+
+          <div class="wf-card wf-card--livro">
+            <div class="wf-img-placeholder wf-img-placeholder--livro">
+              <span class="wf-img-label">livro4.jpg</span>
+            </div>
+            <div class="wf-card__body">
+              <div class="wf-badge-categoria">[ categoria ]</div>
+              <div class="wf-line wf-line--md" style="margin-top:8px;"></div>
+              <div class="wf-line wf-line--full wf-line--light"></div>
+              <div class="wf-line wf-line--xl wf-line--light"></div>
+              <div class="wf-btn wf-btn--sm">[ Saiba Mais ]</div>
+            </div>
+            <div class="wf-card__label">UX Design</div>
+          </div>
+
+          <div class="wf-card wf-card--livro">
+            <div class="wf-img-placeholder wf-img-placeholder--livro">
+              <span class="wf-img-label">livro1.jpg</span>
+            </div>
+            <div class="wf-card__body">
+              <div class="wf-badge-categoria">[ categoria ]</div>
+              <div class="wf-line wf-line--md" style="margin-top:8px;"></div>
+              <div class="wf-line wf-line--full wf-line--light"></div>
+              <div class="wf-line wf-line--xl wf-line--light"></div>
+              <div class="wf-btn wf-btn--sm">[ Saiba Mais ]</div>
+            </div>
+            <div class="wf-card__label">Banco de Dados</div>
+          </div>
+
+          <div class="wf-card wf-card--livro">
+            <div class="wf-img-placeholder wf-img-placeholder--livro">
+              <span class="wf-img-label">livro2.jpg</span>
+            </div>
+            <div class="wf-card__body">
+              <div class="wf-badge-categoria">[ categoria ]</div>
+              <div class="wf-line wf-line--md" style="margin-top:8px;"></div>
+              <div class="wf-line wf-line--full wf-line--light"></div>
+              <div class="wf-line wf-line--xl wf-line--light"></div>
+              <div class="wf-btn wf-btn--sm">[ Saiba Mais ]</div>
+            </div>
+            <div class="wf-card__label">Marketing Digital</div>
+          </div>
+
+        </div>
+      </div>
+      <div class="wf-annotation">
+        Seção Livros · 6 cards · imagem + categoria + título + descrição + botão "Saiba Mais"
+      </div>
+    </section>
+
+    <!-- ==========================================
+         AS UNIDADES
+    ========================================== -->
+    <section class="wf-section wf-unidades">
+      <div class="wf-container">
+
+        <div class="wf-section-header">
+          <div class="wf-label">[ label: Estrutura ]</div>
+          <div class="wf-line wf-line--lg wf-titulo-linha"></div>
+          <div class="wf-line wf-line--xl wf-line--light" style="margin-top:8px;"></div>
+        </div>
+
+        <div class="wf-annotation">3 blocos verticais · imagem esquerda + texto direita · Unidade 2 invertida</div>
+
+        <!-- Bloco Unidade 1 -->
+        <div class="wf-unidade-bloco">
+          <div class="wf-img-placeholder wf-img-placeholder--unidade">
+            <span class="wf-img-label">unidade1.jpg<br/>800 × 600px</span>
+          </div>
+          <div class="wf-unidade__conteudo">
+            <div class="wf-unidade__num">01</div>
+            <div class="wf-line wf-line--md wf-titulo-linha"></div>
+            <div class="wf-line wf-line--full wf-line--light"></div>
+            <div class="wf-line wf-line--full wf-line--light"></div>
+            <div class="wf-line wf-line--xl wf-line--light"></div>
+            <div class="wf-btn wf-btn--outline">[ Saiba mais ]</div>
+          </div>
+          <div class="wf-unidade__titulo-label">Unidade 1 — Leitura e pesquisa individual</div>
+        </div>
+
+        <!-- Bloco Unidade 2 (invertido) -->
+        <div class="wf-unidade-bloco wf-unidade-bloco--inv">
+          <div class="wf-img-placeholder wf-img-placeholder--unidade">
+            <span class="wf-img-label">unidade2.jpg<br/>800 × 600px</span>
+          </div>
+          <div class="wf-unidade__conteudo">
+            <div class="wf-unidade__num">02</div>
+            <div class="wf-line wf-line--md wf-titulo-linha"></div>
+            <div class="wf-line wf-line--full wf-line--light"></div>
+            <div class="wf-line wf-line--full wf-line--light"></div>
+            <div class="wf-line wf-line--xl wf-line--light"></div>
+            <div class="wf-btn wf-btn--outline">[ Saiba mais ]</div>
+          </div>
+          <div class="wf-unidade__titulo-label">Unidade 2 — Estudos colaborativos (layout INVERTIDO)</div>
+        </div>
+
+        <!-- Bloco Unidade 3 -->
+        <div class="wf-unidade-bloco">
+          <div class="wf-img-placeholder wf-img-placeholder--unidade">
+            <span class="wf-img-label">unidade3.jpg<br/>800 × 600px</span>
+          </div>
+          <div class="wf-unidade__conteudo">
+            <div class="wf-unidade__num">03</div>
+            <div class="wf-line wf-line--md wf-titulo-linha"></div>
+            <div class="wf-line wf-line--full wf-line--light"></div>
+            <div class="wf-line wf-line--full wf-line--light"></div>
+            <div class="wf-line wf-line--xl wf-line--light"></div>
+            <div class="wf-btn wf-btn--outline">[ Saiba mais ]</div>
+          </div>
+          <div class="wf-unidade__titulo-label">Unidade 3 — Acesso digital integrado</div>
+        </div>
+
+      </div>
+      <div class="wf-annotation">
+        Seção Unidades · 3 blocos · imagem + número + título + descrição + botão
+      </div>
+    </section>
+
+    <!-- ==========================================
+         CONTATO
+    ========================================== -->
+    <section class="wf-section wf-contato">
+      <div class="wf-container">
+
+        <div class="wf-section-header">
+          <div class="wf-label wf-label--inv">[ label: Fale conosco ]</div>
+          <div class="wf-line wf-line--lg wf-titulo-linha wf-titulo-linha--inv"></div>
+        </div>
+
+        <div class="wf-two-col">
+
+          <!-- Info de contato -->
+          <div class="wf-col">
+            <div class="wf-annotation wf-annotation--inline wf-annotation--inv">Coluna Esquerda — Informações</div>
+            <div class="wf-line wf-line--full wf-line--inv"></div>
+            <div class="wf-line wf-line--xl wf-line--inv"></div>
+            <div class="wf-spacer"></div>
+
+            <!-- Item contato -->
+            <div class="wf-contato-item">
+              <div class="wf-box wf-box--icon-sm"></div>
+              <div>
+                <div class="wf-line wf-line--md wf-line--inv"></div>
+                <div class="wf-line wf-line--lg wf-line--inv" style="margin-top:4px;"></div>
+              </div>
+            </div>
+            <div class="wf-contato-item">
+              <div class="wf-box wf-box--icon-sm"></div>
+              <div>
+                <div class="wf-line wf-line--sm wf-line--inv"></div>
+                <div class="wf-line wf-line--xl wf-line--inv" style="margin-top:4px;"></div>
+              </div>
+            </div>
+            <div class="wf-contato-item">
+              <div class="wf-box wf-box--icon-sm"></div>
+              <div>
+                <div class="wf-line wf-line--sm wf-line--inv"></div>
+                <div class="wf-line wf-line--md wf-line--inv" style="margin-top:4px;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Imagem contato -->
+          <div class="wf-col">
+            <div class="wf-annotation wf-annotation--inline wf-annotation--inv">Coluna Direita — Imagem ilustrativa</div>
+            <div class="wf-img-placeholder wf-img-placeholder--tall">
+              <span class="wf-img-label">IMAGEM<br/>biblioteca.jpg<br/>reutilizada</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="wf-annotation wf-annotation--inv">
+        Seção Contato · fundo escuro · 2 colunas · nome + e-mail + horário · imagem
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       RODAPÉ
+  ========================================== -->
+  <footer class="wf-rodape">
+    <div class="wf-container wf-rodape__inner">
+
+      <!-- Logo -->
+      <div class="wf-rodape__marca">
+        <div class="wf-box wf-box--xs"></div>
+        <div class="wf-line wf-line--md wf-line--inv"></div>
+      </div>
+
+      <!-- Nav links -->
+      <div class="wf-rodape__nav">
+        <div class="wf-line wf-line--xs wf-line--inv"></div>
+        <div class="wf-line wf-line--xs wf-line--inv"></div>
+        <div class="wf-line wf-line--xs wf-line--inv"></div>
+        <div class="wf-line wf-line--xs wf-line--inv"></div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="wf-rodape__copy">
+        <div class="wf-line wf-line--lg wf-line--inv"></div>
+        <div class="wf-line wf-line--md wf-line--inv" style="margin-top:6px;"></div>
+      </div>
+
+    </div>
+    <div class="wf-annotation wf-annotation--inv">
+      Rodapé · logo + links rápidos + copyright · fundo escuro · borda superior colorida
+    </div>
+  </footer>
+
+  <!-- Legenda geral -->
+  <div class="wf-legenda">
+    <h3>Legenda</h3>
+    <div class="wf-legenda__grid">
+      <div class="wf-legenda__item">
+        <div class="wf-img-placeholder wf-legenda__amostra"></div>
+        <span>Placeholder de imagem</span>
+      </div>
+      <div class="wf-legenda__item">
+        <div class="wf-line wf-line--md wf-legenda__amostra"></div>
+        <span>Linha de texto / conteúdo</span>
+      </div>
+      <div class="wf-legenda__item">
+        <div class="wf-btn wf-btn--primary wf-legenda__amostra">[ BTN ]</div>
+        <span>Botão primário (CTA)</span>
+      </div>
+      <div class="wf-legenda__item">
+        <div class="wf-btn wf-btn--sm wf-legenda__amostra">[ BTN ]</div>
+        <span>Botão secundário</span>
+      </div>
+      <div class="wf-legenda__item">
+        <div class="wf-annotation wf-legenda__amostra" style="position:static;font-size:0.7rem;">anotação</div>
+        <span>Anotação do wireframe</span>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Biblioteca Digital UniFECAF — Conhecimento acessível em qualquer lugar para estudantes e pesquisadores." />
+  <meta name="theme-color" content="#001F5B" />
+  <title>Biblioteca Digital UniFECAF</title>
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+       HEADER / NAVEGAÇÃO
+  ============================================================ -->
+  <header class="header" role="banner">
+    <nav class="nav container" aria-label="Navegação principal">
+
+      <a href="#hero" class="nav__logo" aria-label="Biblioteca Digital UniFECAF — página inicial">
+        <span class="nav__logo-icon" aria-hidden="true">📚</span>
+        <span class="nav__logo-text">UniFECAF <strong>Biblioteca</strong></span>
+      </a>
+
+      <!-- Botão hambúrguer (CSS only) -->
+      <input type="checkbox" id="nav-toggle" class="nav__toggle-input" aria-hidden="true" />
+      <label for="nav-toggle" class="nav__toggle-label" aria-label="Abrir menu de navegação">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </label>
+
+      <ul class="nav__list" role="list">
+        <li class="nav__item"><a href="#biblioteca" class="nav__link">Biblioteca</a></li>
+        <li class="nav__item"><a href="#livros"     class="nav__link">Livros</a></li>
+        <li class="nav__item"><a href="#unidades"   class="nav__link">Unidades</a></li>
+        <li class="nav__item"><a href="#contato"    class="nav__link">Contato</a></li>
+      </ul>
+
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         HERO / BANNER PRINCIPAL
+    ============================================================ -->
+    <section class="hero" id="hero" aria-labelledby="hero-titulo">
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <img
+        src="assets/imagens/banner-principal.jpg"
+        alt="Biblioteca moderna com amplos espaços de leitura e estantes de livros"
+        class="hero__bg"
+      />
+      <div class="hero__content container">
+        <h1 class="hero__titulo" id="hero-titulo">Biblioteca Digital UniFECAF</h1>
+        <p class="hero__subtitulo">Conhecimento acessível em qualquer lugar.</p>
+        <a href="#livros" class="btn btn--destaque">Explorar Acervo</a>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SOBRE NOSSA BIBLIOTECA
+    ============================================================ -->
+    <section class="biblioteca" id="biblioteca" aria-labelledby="biblioteca-titulo">
+      <div class="container">
+
+        <div class="biblioteca__grid">
+
+          <!-- Coluna de texto -->
+          <div class="biblioteca__texto">
+            <span class="label-secao" aria-hidden="true">Sobre nós</span>
+            <h2 class="secao-titulo" id="biblioteca-titulo">Nossa Biblioteca</h2>
+            <p>
+              A Biblioteca Digital UniFECAF foi criada para democratizar o acesso ao
+              conhecimento, oferecendo a estudantes e pesquisadores um vasto acervo de
+              livros, artigos e materiais acadêmicos em formato digital.
+            </p>
+            <p>
+              Com disponibilidade 24 horas por dia, 7 dias por semana, você pode
+              acessar nosso conteúdo de qualquer dispositivo — computador, tablet ou
+              smartphone — sem sair de casa.
+            </p>
+            <p>
+              Nossa missão é apoiar a jornada acadêmica de cada aluno, fornecendo
+              recursos de qualidade que complementam as aulas e ampliam o horizonte
+              do aprendizado.
+            </p>
+          </div>
+
+          <!-- Coluna de imagem -->
+          <div class="biblioteca__imagem">
+            <img
+              src="assets/imagens/biblioteca.jpg"
+              alt="Interior de uma biblioteca com estantes repletas de livros e luz natural"
+              class="biblioteca__img"
+              loading="lazy"
+            />
+          </div>
+
+        </div>
+
+        <!-- Cards de categorias -->
+        <div class="categorias" aria-label="Categorias do acervo">
+          <h3 class="sr-only">Categorias disponíveis</h3>
+
+          <article class="categoria-card" tabindex="0">
+            <div class="categoria-card__icone" aria-hidden="true">💻</div>
+            <h3 class="categoria-card__titulo">Tecnologia</h3>
+            <p class="categoria-card__desc">Programação, redes, IA e muito mais.</p>
+          </article>
+
+          <article class="categoria-card" tabindex="0">
+            <div class="categoria-card__icone" aria-hidden="true">📊</div>
+            <h3 class="categoria-card__titulo">Administração</h3>
+            <p class="categoria-card__desc">Gestão, liderança e empreendedorismo.</p>
+          </article>
+
+          <article class="categoria-card" tabindex="0">
+            <div class="categoria-card__icone" aria-hidden="true">🏥</div>
+            <h3 class="categoria-card__titulo">Saúde</h3>
+            <p class="categoria-card__desc">Medicina, enfermagem e ciências da saúde.</p>
+          </article>
+
+          <article class="categoria-card" tabindex="0">
+            <div class="categoria-card__icone" aria-hidden="true">🎓</div>
+            <h3 class="categoria-card__titulo">Educação</h3>
+            <p class="categoria-card__desc">Pedagogia, didática e formação docente.</p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BANNER INTERMEDIÁRIO (decorativo / transição visual)
+    ============================================================ -->
+    <div
+      class="banner-intermediario"
+      role="img"
+      aria-label="Imagem decorativa de estantes de livros em biblioteca"
+    >
+      <img
+        src="assets/imagens/banner-principal.jpg"
+        alt=""
+        class="banner-intermediario__img"
+        loading="lazy"
+        aria-hidden="true"
+      />
+      <div class="banner-intermediario__overlay" aria-hidden="true"></div>
+    </div>
+
+    <!-- ============================================================
+         NOSSOS LIVROS
+    ============================================================ -->
+    <section class="livros" id="livros" aria-labelledby="livros-titulo">
+      <div class="container">
+
+        <span class="label-secao" aria-hidden="true">Acervo</span>
+        <h2 class="secao-titulo" id="livros-titulo">Nossos Livros</h2>
+        <p class="secao-subtitulo">
+          Explore nossa seleção de títulos cuidadosamente curados para sua formação acadêmica.
+        </p>
+
+        <div class="livros__grid">
+
+          <!-- Card 1 -->
+          <article class="livro-card" tabindex="0">
+            <div class="livro-card__imagem-wrapper">
+              <img
+                src="assets/imagens/livro1.jpg"
+                alt="Capa do livro HTML5 Moderno"
+                class="livro-card__imagem"
+                loading="lazy"
+              />
+            </div>
+            <div class="livro-card__corpo">
+              <span class="livro-card__categoria">Tecnologia</span>
+              <h3 class="livro-card__titulo">HTML5 Moderno</h3>
+              <p class="livro-card__desc">
+                Domine a estruturação semântica e as novas APIs do HTML5 para criar
+                páginas web robustas e acessíveis.
+              </p>
+              <a href="#" class="btn btn--secundario" aria-label="Saiba mais sobre HTML5 Moderno">
+                Saiba Mais
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="livro-card" tabindex="0">
+            <div class="livro-card__imagem-wrapper">
+              <img
+                src="assets/imagens/livro2.jpg"
+                alt="Capa do livro CSS Responsivo"
+                class="livro-card__imagem"
+                loading="lazy"
+              />
+            </div>
+            <div class="livro-card__corpo">
+              <span class="livro-card__categoria">Tecnologia</span>
+              <h3 class="livro-card__titulo">CSS Responsivo</h3>
+              <p class="livro-card__desc">
+                Aprenda Flexbox, Grid Layout e media queries para criar interfaces
+                adaptadas a todos os dispositivos.
+              </p>
+              <a href="#" class="btn btn--secundario" aria-label="Saiba mais sobre CSS Responsivo">
+                Saiba Mais
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="livro-card" tabindex="0">
+            <div class="livro-card__imagem-wrapper">
+              <img
+                src="assets/imagens/livro3.jpg"
+                alt="Capa do livro JavaScript Essencial"
+                class="livro-card__imagem"
+                loading="lazy"
+              />
+            </div>
+            <div class="livro-card__corpo">
+              <span class="livro-card__categoria">Tecnologia</span>
+              <h3 class="livro-card__titulo">JavaScript Essencial</h3>
+              <p class="livro-card__desc">
+                Fundamentos e práticas modernas de JavaScript para desenvolvimento
+                web interativo e dinâmico.
+              </p>
+              <a href="#" class="btn btn--secundario" aria-label="Saiba mais sobre JavaScript Essencial">
+                Saiba Mais
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="livro-card" tabindex="0">
+            <div class="livro-card__imagem-wrapper">
+              <img
+                src="assets/imagens/livro4.jpg"
+                alt="Capa do livro UX Design"
+                class="livro-card__imagem"
+                loading="lazy"
+              />
+            </div>
+            <div class="livro-card__corpo">
+              <span class="livro-card__categoria">Design</span>
+              <h3 class="livro-card__titulo">UX Design</h3>
+              <p class="livro-card__desc">
+                Princípios de experiência do usuário, prototipação e pesquisa para
+                criar produtos digitais centrados no usuário.
+              </p>
+              <a href="#" class="btn btn--secundario" aria-label="Saiba mais sobre UX Design">
+                Saiba Mais
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="livro-card" tabindex="0">
+            <div class="livro-card__imagem-wrapper">
+              <img
+                src="assets/imagens/livro5.jpg"
+                alt="Capa do livro Banco de Dados"
+                class="livro-card__imagem"
+                loading="lazy"
+              />
+            </div>
+            <div class="livro-card__corpo">
+              <span class="livro-card__categoria">Tecnologia</span>
+              <h3 class="livro-card__titulo">Banco de Dados</h3>
+              <p class="livro-card__desc">
+                Modelagem relacional, SQL avançado e bancos NoSQL para aplicações
+                modernas de alta performance.
+              </p>
+              <a href="#" class="btn btn--secundario" aria-label="Saiba mais sobre Banco de Dados">
+                Saiba Mais
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="livro-card" tabindex="0">
+            <div class="livro-card__imagem-wrapper">
+              <img
+                src="assets/imagens/livro6.jpg"
+                alt="Capa do livro Marketing Digital"
+                class="livro-card__imagem"
+                loading="lazy"
+              />
+            </div>
+            <div class="livro-card__corpo">
+              <span class="livro-card__categoria">Administração</span>
+              <h3 class="livro-card__titulo">Marketing Digital</h3>
+              <p class="livro-card__desc">
+                Estratégias de SEO, mídias sociais, inbound marketing e análise de
+                dados para o ambiente digital.
+              </p>
+              <a href="#" class="btn btn--secundario" aria-label="Saiba mais sobre Marketing Digital">
+                Saiba Mais
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         AS UNIDADES
+    ============================================================ -->
+    <section class="unidades" id="unidades" aria-labelledby="unidades-titulo">
+      <div class="container">
+
+        <span class="label-secao" aria-hidden="true">Estrutura</span>
+        <h2 class="secao-titulo" id="unidades-titulo">As Unidades</h2>
+        <p class="secao-subtitulo">
+          Conheça os espaços físicos e digitais que compõem a Biblioteca UniFECAF.
+        </p>
+
+        <!-- Unidade 1 -->
+        <article class="unidade-bloco" tabindex="0">
+          <div class="unidade-bloco__imagem-wrapper">
+            <img
+              src="assets/imagens/unidade1.jpg"
+              alt="Sala de leitura moderna da Unidade 1 com iluminação natural e mesas amplas"
+              class="unidade-bloco__imagem"
+              loading="lazy"
+            />
+          </div>
+          <div class="unidade-bloco__conteudo">
+            <span class="unidade-bloco__numero" aria-hidden="true">01</span>
+            <h3 class="unidade-bloco__titulo">Unidade 1</h3>
+            <p class="unidade-bloco__desc">
+              Ambiente moderno para leitura e pesquisa, equipado com computadores de
+              última geração e acesso rápido ao acervo digital. Um espaço pensado para
+              concentração e produtividade individual.
+            </p>
+            <a href="#contato" class="btn btn--outline">Saiba mais</a>
+          </div>
+        </article>
+
+        <!-- Unidade 2 -->
+        <article class="unidade-bloco unidade-bloco--invertido" tabindex="0">
+          <div class="unidade-bloco__imagem-wrapper">
+            <img
+              src="assets/imagens/unidade2.jpg"
+              alt="Espaço colaborativo da Unidade 2 com mesas em grupo e quadros interativos"
+              class="unidade-bloco__imagem"
+              loading="lazy"
+            />
+          </div>
+          <div class="unidade-bloco__conteudo">
+            <span class="unidade-bloco__numero" aria-hidden="true">02</span>
+            <h3 class="unidade-bloco__titulo">Unidade 2</h3>
+            <p class="unidade-bloco__desc">
+              Espaço para estudos colaborativos com salas reserváveis, quadros
+              interativos e infraestrutura para trabalhos em grupo, seminários e
+              apresentações acadêmicas.
+            </p>
+            <a href="#contato" class="btn btn--outline">Saiba mais</a>
+          </div>
+        </article>
+
+        <!-- Unidade 3 -->
+        <article class="unidade-bloco" tabindex="0">
+          <div class="unidade-bloco__imagem-wrapper">
+            <img
+              src="assets/imagens/unidade3.jpg"
+              alt="Estação digital da Unidade 3 com totens de acesso ao acervo virtual"
+              class="unidade-bloco__imagem"
+              loading="lazy"
+            />
+          </div>
+          <div class="unidade-bloco__conteudo">
+            <span class="unidade-bloco__numero" aria-hidden="true">03</span>
+            <h3 class="unidade-bloco__titulo">Unidade 3</h3>
+            <p class="unidade-bloco__desc">
+              Acesso digital integrado ao acervo com totens de consulta, empréstimo
+              automatizado e conectividade total. A tecnologia a serviço do
+              conhecimento, disponível 24h por dia.
+            </p>
+            <a href="#contato" class="btn btn--outline">Saiba mais</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTATO
+    ============================================================ -->
+    <section class="contato" id="contato" aria-labelledby="contato-titulo">
+      <div class="container">
+
+        <div class="contato__grid">
+
+          <!-- Informações de contato -->
+          <div class="contato__info">
+            <span class="label-secao label-secao--claro" aria-hidden="true">Fale conosco</span>
+            <h2 class="secao-titulo secao-titulo--claro" id="contato-titulo">Contato</h2>
+            <p class="contato__texto">
+              Tem alguma dúvida sobre nosso acervo ou precisa de suporte para acessar
+              a plataforma? Nossa equipe está pronta para ajudar.
+            </p>
+
+            <address class="contato__endereco">
+              <div class="contato__item">
+                <span class="contato__icone" aria-hidden="true">🏛️</span>
+                <div class="contato__item-texto">
+                  <strong>Biblioteca Digital UniFECAF</strong>
+                  <span>Instituição de Ensino Superior</span>
+                </div>
+              </div>
+              <div class="contato__item">
+                <span class="contato__icone" aria-hidden="true">✉️</span>
+                <div class="contato__item-texto">
+                  <strong>E-mail</strong>
+                  <a
+                    href="mailto:contato@biblioteca.unifecaf.edu.br"
+                    class="contato__link"
+                    aria-label="Enviar e-mail para contato@biblioteca.unifecaf.edu.br"
+                  >
+                    contato@biblioteca.unifecaf.edu.br
+                  </a>
+                </div>
+              </div>
+              <div class="contato__item">
+                <span class="contato__icone" aria-hidden="true">🕐</span>
+                <div class="contato__item-texto">
+                  <strong>Atendimento</strong>
+                  <span>Segunda a Sexta, 8h às 22h</span>
+                </div>
+              </div>
+            </address>
+          </div>
+
+          <!-- Imagem ilustrativa -->
+          <div class="contato__imagem-wrapper">
+            <img
+              src="assets/imagens/biblioteca.jpg"
+              alt="Estudante consultando livros na biblioteca UniFECAF"
+              class="contato__imagem"
+              loading="lazy"
+            />
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       RODAPÉ
+  ============================================================ -->
+  <footer class="rodape" role="contentinfo">
+    <div class="container">
+      <div class="rodape__grid">
+
+        <div class="rodape__marca">
+          <span class="rodape__icone" aria-hidden="true">📚</span>
+          <span class="rodape__nome">UniFECAF <strong>Biblioteca</strong></span>
+        </div>
+
+        <nav class="rodape__nav" aria-label="Links rápidos do rodapé">
+          <a href="#biblioteca" class="rodape__link">Biblioteca</a>
+          <a href="#livros"     class="rodape__link">Livros</a>
+          <a href="#unidades"   class="rodape__link">Unidades</a>
+          <a href="#contato"    class="rodape__link">Contato</a>
+        </nav>
+
+        <div class="rodape__copy">
+          <p>© 2025 Biblioteca Digital UniFECAF</p>
+          <p>Todos os direitos reservados</p>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
